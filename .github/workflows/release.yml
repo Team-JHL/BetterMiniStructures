@@ -38,7 +38,7 @@ jobs:
       - name: Extract version from CHANGELOG
         id: vars
         run: |
-          VERSION=$(grep -m1 '^##' CHANGELOG.md | sed 's/^## //')
+          VERSION=$(grep -m1 '^## ' CHANGELOG.md | sed 's/^## //')
           echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Extract changelog section
