@@ -41,31 +41,26 @@ jobs:
           VERSION=$(grep -m1 '^## ' CHANGELOG.md | sed 's/^## //')
           echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
 
-      - name: Extract changelog section (FIXED multiline)
+      - name: Extract changelog section
         id: changelog
-        shell: bash
         run: |
-          CHANGELOG=$(awk '
+          awk '
             BEGIN { printing = 0 }
             /^##[[:space:]]/ {
               if (printing == 1) exit
               printing = 1
               next
             }
-            printing { print }
-          ' CHANGELOG.md)
+            printing == 1 { print }
+          ' CHANGELOG.md > changelog.txt
 
-          # remove "- " prefix but keep line breaks
-          CHANGELOG=$(echo "$CHANGELOG" | sed 's/^- //')
+          sed -i 's/^\\//' changelog.txt
 
-          echo "----- CLEAN CHANGELOG -----"
-          echo "$CHANGELOG"
+          cat changelog.txt
 
-          {
-            echo "CHANGELOG<<EOF"
-            echo "$CHANGELOG"
-            echo "EOF"
-          } >> $GITHUB_OUTPUT
+          echo "CHANGELOG<<EOF" >> $GITHUB_OUTPUT
+          cat changelog.txt >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Publish Modrinth + CurseForge
         uses: Kir-Antipov/mc-publish@v3
@@ -81,8 +76,7 @@ jobs:
           name: BetterMiniStructures ${{ steps.vars.outputs.VERSION }}
           version: ${{ steps.vars.outputs.VERSION }}
 
-          changelog: |
-            ${{ steps.changelog.outputs.CHANGELOG }}
+          changelog-file: changelog.txt
 
           loaders: |
             forge
