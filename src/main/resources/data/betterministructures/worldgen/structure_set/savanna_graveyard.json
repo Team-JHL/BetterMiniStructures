@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "betterministructures:savanna_graveyard",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 32,
+    "separation": 18,
+    "salt": 556715551
+  }
+}

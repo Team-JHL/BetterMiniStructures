@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "betterministructures:swamp_ruin_3",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 46,
+    "separation": 13,
+    "salt": 1274232237
+  }
+}

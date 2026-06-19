@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "betterministructures:pillager_swamp_camp_1",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 45,
+    "separation": 25,
+    "salt": 169632530
+  }
+}

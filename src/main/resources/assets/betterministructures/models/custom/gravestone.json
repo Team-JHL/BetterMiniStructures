@@ -1,0 +1,358 @@
+{
+  "credit": "Made with Blockbench",
+  "texture_size": [
+    64,
+    64
+  ],
+  "elements": [
+    {
+      "name": "stone_base",
+      "from": [
+        1,
+        1,
+        0
+      ],
+      "to": [
+        15,
+        15,
+        3
+      ],
+      "rotation": {
+        "angle": 0,
+        "axis": "y",
+        "origin": [
+          0,
+          1,
+          1
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            0.75,
+            5,
+            4.25,
+            8.5
+          ],
+          "texture": "#gravestone"
+        },
+        "east": {
+          "uv": [
+            0,
+            5,
+            0.75,
+            8.5
+          ],
+          "texture": "#gravestone"
+        },
+        "south": {
+          "uv": [
+            5,
+            5,
+            8.5,
+            8.5
+          ],
+          "texture": "#gravestone"
+        },
+        "west": {
+          "uv": [
+            4.25,
+            5,
+            5,
+            8.5
+          ],
+          "texture": "#gravestone"
+        },
+        "up": {
+          "uv": [
+            4.25,
+            5,
+            0.75,
+            4.25
+          ],
+          "texture": "#gravestone"
+        },
+        "down": {
+          "uv": [
+            7.75,
+            4.25,
+            4.25,
+            5
+          ],
+          "texture": "#gravestone"
+        }
+      }
+    },
+    {
+      "name": "stone_top",
+      "from": [
+        3,
+        15,
+        0
+      ],
+      "to": [
+        13,
+        17,
+        3
+      ],
+      "rotation": {
+        "angle": 0,
+        "axis": "y",
+        "origin": [
+          0,
+          1,
+          1
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            8.75,
+            8.75,
+            11.25,
+            9.25
+          ],
+          "texture": "#gravestone"
+        },
+        "east": {
+          "uv": [
+            8,
+            8.75,
+            8.75,
+            9.25
+          ],
+          "texture": "#gravestone"
+        },
+        "south": {
+          "uv": [
+            12,
+            8.75,
+            14.5,
+            9.25
+          ],
+          "texture": "#gravestone"
+        },
+        "west": {
+          "uv": [
+            11.25,
+            8.75,
+            12,
+            9.25
+          ],
+          "texture": "#gravestone"
+        },
+        "up": {
+          "uv": [
+            11.25,
+            8.75,
+            8.75,
+            8
+          ],
+          "texture": "#gravestone"
+        },
+        "down": {
+          "uv": [
+            13.75,
+            8,
+            11.25,
+            8.75
+          ],
+          "texture": "#gravestone"
+        }
+      }
+    },
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        1,
+        16
+      ],
+      "rotation": {
+        "angle": 0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          14
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            8,
+            0.25
+          ],
+          "texture": "#gravestone"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            0.25
+          ],
+          "texture": "#gravestone"
+        },
+        "south": {
+          "uv": [
+            4,
+            3.75,
+            8,
+            4
+          ],
+          "texture": "#gravestone"
+        },
+        "west": {
+          "uv": [
+            4,
+            3.75,
+            8,
+            4
+          ],
+          "texture": "#gravestone"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#gravestone"
+        },
+        "down": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gravestone"
+        }
+      }
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        43.6,
+        -38.7,
+        -2.8
+      ],
+      "translation": [
+        -1.5,
+        -0.5,
+        0.5
+      ],
+      "scale": [
+        0.3,
+        0.3,
+        0.3
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        43.6,
+        -38.7,
+        -2.8
+      ],
+      "translation": [
+        -1.5,
+        -0.5,
+        0.5
+      ],
+      "scale": [
+        0.3,
+        0.3,
+        0.3
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -50.5,
+        0
+      ],
+      "translation": [
+        2.75,
+        1.5,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        -50.5,
+        0
+      ],
+      "translation": [
+        2.75,
+        1.5,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "ground": {
+      "translation": [
+        0,
+        4.25,
+        0
+      ],
+      "scale": [
+        0.3,
+        0.3,
+        0.3
+      ]
+    },
+    "head": {
+      "rotation": [
+        -180,
+        0.5,
+        -180
+      ],
+      "translation": [
+        0,
+        -23.5,
+        -1.75
+      ],
+      "scale": [
+        2.70703,
+        2.70703,
+        2.70703
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        -0.75
+      ],
+      "scale": [
+        0.51,
+        0.52,
+        0.28
+      ]
+    }
+  }
+}

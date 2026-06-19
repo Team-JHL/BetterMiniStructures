@@ -1,0 +1,29 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT License"
+
+[[mods]]
+modId="betterministructures"
+version="1.0.3"
+displayName="BetterMiniStructures"
+displayURL="https://mcreator.net"
+logoFile="logo.png"
+credits="Created using mod maker MCreator - https://mcreator.net/about"
+authors="Jakomi1"
+description="Adds new \"Mini-Structures\" to the game"
+
+# Start of user code block mod configuration
+# End of user code block mod configuration
+
+[[dependencies.betterministructures]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1]"
+    ordering="AFTER"
+    side="BOTH"
+
+
+
+
+# Start of user code block dependencies configuration
+# End of user code block dependencies configuration

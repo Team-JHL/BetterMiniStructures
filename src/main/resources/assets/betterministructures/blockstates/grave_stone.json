@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "betterministructures:block/grave_stone"
+    },
+    "facing=east": {
+      "model": "betterministructures:block/grave_stone",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "betterministructures:block/grave_stone",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "betterministructures:block/grave_stone",
+      "y": 270
+    }
+  }
+}

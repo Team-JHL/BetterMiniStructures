@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 12,
+        "max": 18
+      },
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "name": "betterministructures:generic/dye_loottable"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "name": "betterministructures:generic/seed_loottable"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "name": "betterministructures:generic/sapling_loottable"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "name": "betterministructures:generic/log_loottable"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "name": "betterministructures:generic/plant_loottable"
+        }
+      ]
+    }
+  ],
+  "random_sequence": "betterministructures:chests/wandering_trader_wagon_loottable"
+}

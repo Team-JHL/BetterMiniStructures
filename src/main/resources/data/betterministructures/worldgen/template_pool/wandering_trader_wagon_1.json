@@ -1,0 +1,29 @@
+{
+  "name": "betterministructures:wandering_trader_wagon_1",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "betterministructures:wandering_trader_wagon_1",
+        "projection": "rigid",
+        "processors": {
+          "processors": [
+            {
+              "processor_type": "minecraft:block_ignore",
+              "blocks": [
+                {
+                  "Name": "minecraft:structure_block"
+                },
+                {
+                  "Name": "minecraft:barrier"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
