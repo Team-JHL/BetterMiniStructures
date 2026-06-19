@@ -21,19 +21,24 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
-          cache: maven
+          cache: gradle
 
-      - name: Build with Maven
-        run: mvn clean package
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
+      - name: Build with Gradle
+        run: ./gradlew build
 
       - name: Find JAR
         id: jar
-        run: echo "JAR=$(ls build/libs/*.jar | head -n 1)" >> $GITHUB_OUTPUT
+        run: |
+          JAR=$(find build/libs -name "*.jar" ! -name "*sources*" ! -name "*dev*" | head -n 1)
+          echo "JAR=$JAR" >> $GITHUB_OUTPUT
 
       - name: Extract version from CHANGELOG
         id: vars
         run: |
-          VERSION=$(grep -m1 '^## ' CHANGELOG.md | sed 's/^## //')
+          VERSION=$(grep -m1 '^##' CHANGELOG.md | sed 's/^## //')
           echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Extract changelog section
@@ -41,7 +46,7 @@ jobs:
         run: |
           awk '
             BEGIN { printing = 0 }
-            /^##[[:space:]]/ {
+            /^## / {
               if (printing == 1) exit
               printing = 1
               next
@@ -49,14 +54,9 @@ jobs:
             printing == 1 { print }
           ' CHANGELOG.md > changelog.txt
 
-          sed -i 's/^\\//' changelog.txt
-
-          cat changelog.txt
-
           echo "CHANGELOG<<EOF" >> $GITHUB_OUTPUT
           cat changelog.txt >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
-      
 
       - name: Publish Modrinth + CurseForge
         uses: Kir-Antipov/mc-publish@v3
