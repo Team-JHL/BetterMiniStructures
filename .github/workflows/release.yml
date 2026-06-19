@@ -54,13 +54,14 @@ jobs:
             printing == 1 { print }
           ' CHANGELOG.md > changelog.txt
 
-          sed -i 's/^\\//' changelog.txt
-
+          echo "----- RAW CHANGELOG -----"
           cat changelog.txt
 
-          echo "CHANGELOG<<EOF" >> $GITHUB_OUTPUT
-          cat changelog.txt >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          {
+            echo "CHANGELOG<<EOF"
+            cat changelog.txt
+            echo "EOF"
+          } >> $GITHUB_OUTPUT
 
       - name: Publish Modrinth + CurseForge
         uses: Kir-Antipov/mc-publish@v3
