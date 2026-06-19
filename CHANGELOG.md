@@ -1,3 +1,7 @@
+## 1.0.6
+- added autoRelease
+- added dynamic mod-version
+
 ## 1.0.5
 - added language support: Korean, German, French, Spanish, Italian, Polish, Russian, Simplified Chinese, Japanese
 
