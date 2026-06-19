@@ -41,25 +41,29 @@ jobs:
           VERSION=$(grep -m1 '^## ' CHANGELOG.md | sed 's/^## //')
           echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
 
-      - name: Extract changelog section
+      - name: Extract changelog section (FIXED multiline)
         id: changelog
+        shell: bash
         run: |
-          awk '
+          CHANGELOG=$(awk '
             BEGIN { printing = 0 }
             /^##[[:space:]]/ {
               if (printing == 1) exit
               printing = 1
               next
             }
-            printing == 1 { print }
-          ' CHANGELOG.md > changelog.txt
+            printing { print }
+          ' CHANGELOG.md)
 
-          echo "----- RAW CHANGELOG -----"
-          cat changelog.txt
+          # remove "- " prefix but keep line breaks
+          CHANGELOG=$(echo "$CHANGELOG" | sed 's/^- //')
+
+          echo "----- CLEAN CHANGELOG -----"
+          echo "$CHANGELOG"
 
           {
             echo "CHANGELOG<<EOF"
-            cat changelog.txt
+            echo "$CHANGELOG"
             echo "EOF"
           } >> $GITHUB_OUTPUT
 
@@ -77,7 +81,8 @@ jobs:
           name: BetterMiniStructures ${{ steps.vars.outputs.VERSION }}
           version: ${{ steps.vars.outputs.VERSION }}
 
-          changelog: ${{ steps.changelog.outputs.CHANGELOG }}
+          changelog: |
+            ${{ steps.changelog.outputs.CHANGELOG }}
 
           loaders: |
             forge
@@ -90,5 +95,6 @@ jobs:
         with:
           tag_name: v${{ steps.vars.outputs.VERSION }}
           name: BetterMiniStructures ${{ steps.vars.outputs.VERSION }}
-          body: ${{ steps.changelog.outputs.CHANGELOG }}
+          body: |
+            ${{ steps.changelog.outputs.CHANGELOG }}
           files: ${{ steps.jar.outputs.JAR }}
