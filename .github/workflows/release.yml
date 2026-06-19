@@ -46,13 +46,17 @@ jobs:
         run: |
           awk '
             BEGIN { printing = 0 }
-            /^## / {
+            /^##[[:space:]]/ {
               if (printing == 1) exit
               printing = 1
               next
             }
             printing == 1 { print }
           ' CHANGELOG.md > changelog.txt
+
+          sed -i 's/^\\//' changelog.txt
+
+          cat changelog.txt
 
           echo "CHANGELOG<<EOF" >> $GITHUB_OUTPUT
           cat changelog.txt >> $GITHUB_OUTPUT
