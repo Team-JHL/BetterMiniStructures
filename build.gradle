@@ -4,8 +4,8 @@ plugins {
 }
 
 version = project.findProperty("version") ?: "1.0.0"
-group = project.findProperty("group") ?: "de.jakomi1"
-archivesBaseName = project.findProperty("name") ?: "mod"
+group = project.findProperty("group") ?: "de.jakomi1.betterministructures"
+archivesBaseName = project.findProperty("name") ?: "betterministructures"
 
 def javaVersion = (project.findProperty("javaVersion") ?: "17") as int
 
@@ -36,7 +36,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                examplemod {
+                betterministructures {
                     source sourceSets.main
                 }
             }
@@ -46,6 +46,14 @@ minecraft {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${project.findProperty("forgeVersion") ?: "1.20.1-47.3.0"}"
+}
+
+processResources {
+    inputs.property "version", project.version
+
+    filesMatching("META-INF/mods.toml") {
+        expand version: project.version
+    }
 }
 
 tasks.withType(JavaCompile).configureEach {
