@@ -7,9 +7,9 @@ public class GraveKeyItem extends Item {
 
     public GraveKeyItem() {
         super(new Properties()
-                .stacksTo(1)                // Nur ein Schlüssel pro Slot
-                .rarity(Rarity.UNCOMMON)    // Hebt sich optisch ab
-                .durability(0)              // Kein Verschleiß, optional
+                .stacksTo(1)
+                .rarity(Rarity.UNCOMMON)
+                .durability(0)
         );
     }
 }

@@ -1,3 +1,8 @@
+## 1.0.7
+- fixed autoRelease
+- removed unused code
+
+
 ## 1.0.6
 - added autoRelease
 - added dynamic mod-version

@@ -3,14 +3,20 @@ plugins {
     id 'net.minecraftforge.gradle' version '[6.0.16,6.2)'
 }
 
-version = '1.0.6'
-group = 'de.jakomi1.betterministructures'
-archivesBaseName = 'betterministructures'
+version = project.findProperty("version") ?: "1.0.0"
+group = project.findProperty("group") ?: "de.jakomi1"
+archivesBaseName = project.findProperty("name") ?: "mod"
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+def javaVersion = (project.findProperty("javaVersion") ?: "17") as int
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(javaVersion)
+    }
+}
 
 minecraft {
-    mappings channel: 'official', version: '1.20.1'
+    mappings channel: 'official', version: project.findProperty("minecraftVersion") ?: "1.20.1"
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -43,12 +49,9 @@ minecraft {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.20.1-47.3.0'
+    minecraft "net.minecraftforge:forge:${project.findProperty("forgeVersion") ?: "1.20.1-47.3.0"}"
 }
 
 tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+    options.encoding = 'UTF-8'
 }
-
-apply from: 'mcreator.gradle'
-

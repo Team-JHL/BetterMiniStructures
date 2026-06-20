@@ -20,8 +20,6 @@ public class BetterministructuresModItems {
 	public static final RegistryObject<Item> GRAVE_STONE = block(BetterministructuresModBlocks.GRAVE_STONE);
 	public static final RegistryObject<Item> GRAVE_KEY = REGISTRY.register("grave_key", GraveKeyItem::new);
 
-	// Start of user code block custom items
-	// End of user code block custom items
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
 	}

@@ -25,10 +25,9 @@ public class OnGraveStoneClickProcedure {
 		if (entity == null)
 			return;
 
-		// Prüfen, ob der Spieler einen Diamanten in der Hand hat
 		ItemStack heldItem = entity.getMainHandItem();
 		if (!heldItem.is(BetterministructuresModItems.GRAVE_KEY.get())) {
-			return; // Nicht mit Diamant → nichts tun
+			return;
 		}
 		entity.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.AIR));
 		BlockPos pos = BlockPos.containing(x, y, z);
@@ -47,10 +46,7 @@ public class OnGraveStoneClickProcedure {
 			level.addFreshEntity(skull);
 		}
 
-		// Block zerstören
 		world.destroyBlock(pos, false);
-
-		// Sound abspielen
 		if (world instanceof Level level) {
 			level.playSound(null, pos, SoundEvents.CHEST_OPEN, SoundSource.BLOCKS, 1.0f, 0.0f);
 		}
