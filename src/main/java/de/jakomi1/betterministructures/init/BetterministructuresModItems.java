@@ -21,6 +21,7 @@ public class BetterministructuresModItems {
 	public static final RegistryObject<Item> GRAVE_KEY = REGISTRY.register("grave_key", GraveKeyItem::new);
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
-		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
+        assert block.getId() != null;
+        return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
 	}
 }
