@@ -1,6 +1,5 @@
-## 1.0.8 (not pushed)
-- added support:
-  - inlined changelog
+## 1.0.8
+- added inlined changelog
 - removed unused code
 
 ## 1.0.7
