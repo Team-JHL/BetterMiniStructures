@@ -1,4 +1,4 @@
-name: Universal Plugin Release
+name: Universal Mod Release
 
 on:
   push:
@@ -92,8 +92,8 @@ jobs:
             CHANGELOG_FILE="$(get_xml changelogFile)"
           fi
 
-          LOADERS_RAW="${LOADERS_RAW:-paper,spigot,bukkit,purpur,folia}"
-          GAMES_RAW="${GAMES_RAW:-1.8.8,1.9.X,1.10.X,1.11.X,1.12.X,1.13.X,1.14.X,1.15.X,1.16.X,1.17.X,1.18.X,1.19.X,1.20.X,1.21.X,26.1.X,26.2}"
+          LOADERS_RAW="${LOADERS_RAW:-forge,fabric,quilt}"
+          GAMES_RAW="${GAMES_RAW:-1.20.1,1.20.2,1.20.4,1.21,1.21.1}"
           CHANGELOG_FILE="${CHANGELOG_FILE:-CHANGELOG.md}"
           JAVA_VERSION="${JAVA_VERSION:-21}"
 
@@ -141,7 +141,7 @@ jobs:
         shell: bash
         run: |
           chmod +x gradlew
-          ./gradlew clean shadowJar
+          ./gradlew clean build
 
       - name: Build (Maven)
         if: steps.detect.outputs.TYPE == 'maven'
@@ -161,13 +161,10 @@ jobs:
               ! -name '*-plain.jar' \
               ! -name '*-original.jar' | head -n 1)"
           else
-            JAR="$(find target -maxdepth 1 -type f -name '*-shaded.jar' | head -n 1)"
-            if [ -z "$JAR" ]; then
-              JAR="$(find target -maxdepth 1 -type f -name '*.jar' \
-                ! -name 'original-*' \
-                ! -name '*-sources.jar' \
-                ! -name '*-javadoc.jar' | head -n 1)"
-            fi
+            JAR="$(find target -maxdepth 1 -type f -name '*.jar' \
+              ! -name '*-sources.jar' \
+              ! -name '*-javadoc.jar' \
+              ! -name 'original-*' | head -n 1)"
           fi
 
           if [ -z "$JAR" ]; then
