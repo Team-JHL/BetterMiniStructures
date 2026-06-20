@@ -1,7 +1,11 @@
+## 1.0.8 (not pushed)
+- added support:
+  - inlined changelog
+- removed unused code
+
 ## 1.0.7
 - fixed autoRelease
 - removed unused code
-
 
 ## 1.0.6
 - added autoRelease

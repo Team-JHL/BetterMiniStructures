@@ -200,17 +200,55 @@ jobs:
 
           {
             echo "HTML<<EOF"
+
+            in_list=0
+            in_sublist=0
+            prev_indent=0
+
+            close_sublist() {
+              if [ "$in_sublist" -eq 1 ]; then
+                echo "    </ul>"
+                in_sublist=0
+              fi
+            }
+
+            close_list() {
+              close_sublist
+              if [ "$in_list" -eq 1 ]; then
+                echo "</li>"
+                in_list=0
+              fi
+            }
+
             echo "<ul>"
+
             while IFS= read -r line; do
-              line="$(printf '%s' "$line" | sed 's/^ *//;s/ *$//')"
-              if [[ "$line" == "- "* ]]; then
-                content="${line#- }"
+              [ -z "${line//[[:space:]]/}" ] && continue
+
+              trimmed="$(printf '%s' "$line" | sed 's/^ *//;s/ *$//')"
+              indent=$(printf '%s' "$line" | awk '{ match($0, /^[ ]*/); print RLENGTH }')
+
+              if [[ "$trimmed" == "- "* ]]; then
+                content="${trimmed#- }"
                 content="${content//&/&amp;}"
                 content="${content//</&lt;}"
                 content="${content//>/&gt;}"
-                echo "  <li>$content</li>"
+
+                if [ "$indent" -eq 0 ]; then
+                  close_list
+                  echo "  <li>$content"
+                  in_list=1
+                else
+                  if [ "$in_sublist" -eq 0 ]; then
+                    echo "    <ul>"
+                    in_sublist=1
+                  fi
+                  echo "      <li>$content</li>"
+                fi
               fi
             done < latest.md
+
+            close_list
             echo "</ul>"
             echo "EOF"
           } >> "$GITHUB_OUTPUT"
