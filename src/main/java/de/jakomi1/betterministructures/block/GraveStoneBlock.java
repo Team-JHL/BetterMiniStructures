@@ -1,4 +1,3 @@
-
 package de.jakomi1.betterministructures.block;
 
 import net.minecraft.world.phys.shapes.VoxelShape;

@@ -1,7 +1,3 @@
-
-/*
- *    MCreator note: This file will be REGENERATED on each build.
- */
 package de.jakomi1.betterministructures.init;
 
 import de.jakomi1.betterministructures.item.GraveKeyItem;

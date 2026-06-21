@@ -1,3 +1,7 @@
+## 1.0.9
+- added auto description updater
+- removed more unused code
+
 ## 1.0.8
 - added inlined changelog
 - removed unused code
