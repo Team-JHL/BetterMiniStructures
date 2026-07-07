@@ -58,7 +58,7 @@ public class GraveStoneBlock extends Block implements SimpleWaterloggedBlock {
 	}
 
 	@Override
-	public VoxelShape getShape(BlockState state, @NotNull BlockGetter world, @NotNull BlockPos pos, @NotNull CollisionContext context) {
+	public @NotNull VoxelShape getShape(BlockState state, @NotNull BlockGetter world, @NotNull BlockPos pos, @NotNull CollisionContext context) {
 		return switch (state.getValue(FACING)) {
 			default -> Shapes.or(box(1, 1, 0, 15, 15, 3), box(3, 15, 0, 13, 16.75, 3), box(0, 0, 0, 16, 1, 16));
 			case NORTH -> Shapes.or(box(1, 1, 13, 15, 15, 16), box(3, 15, 13, 13, 16.75, 16), box(0, 0, 0, 16, 1, 16));
