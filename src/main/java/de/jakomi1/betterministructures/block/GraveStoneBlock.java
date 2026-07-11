@@ -101,16 +101,12 @@ public class GraveStoneBlock extends Block implements SimpleWaterloggedBlock {
 	}
 
 	@Override
-	public @NotNull InteractionResult use(@NotNull BlockState blockstate, @NotNull Level world, @NotNull BlockPos pos, @NotNull Player entity, @NotNull InteractionHand hand, @NotNull BlockHitResult hit) {
-		super.use(blockstate, world, pos, entity, hand, hit);
+	public @NotNull InteractionResult useWithoutItem(@NotNull BlockState blockstate, @NotNull Level world, @NotNull BlockPos pos, @NotNull Player player, @NotNull BlockHitResult hit) {
+		super.useWithoutItem(blockstate, world, pos, player, hit);
 		int x = pos.getX();
 		int y = pos.getY();
 		int z = pos.getZ();
-		double hitX = hit.getLocation().x;
-		double hitY = hit.getLocation().y;
-		double hitZ = hit.getLocation().z;
-		Direction direction = hit.getDirection();
-		OnGraveStoneClickProcedure.execute(world, x, y, z, entity);
+		OnGraveStoneClickProcedure.execute(world, x, y, z, player);
 		return InteractionResult.SUCCESS;
 	}
 }

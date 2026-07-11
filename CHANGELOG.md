@@ -1,3 +1,7 @@
+## 1.1.0
+- updated to neoforge 1.21.1
+- added fastStats support
+
 ## 1.0.10
 - fixed annotation bug
 

@@ -2,7 +2,7 @@
   "display": {
     "background": "minecraft:textures/block/stone.png",
     "icon": {
-      "item": "minecraft:oak_sapling"
+      "id": "minecraft:oak_sapling"
     },
     "title": {
       "translate": "advancements.better_mini_structures_root.title"
